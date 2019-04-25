@@ -56,3 +56,5 @@ VALUES
   ('johndoe', 'password1', 'johndoe@gmail.com', 'john', 'doe'),
   ('janesmith', 'password1', 'janesmith@gmail.con', 'jane', 'smith'),
   ('olegkan', 'password1', 'olegkan@gmail.con', 'oleg', 'kan');
+
+COMMIT;
