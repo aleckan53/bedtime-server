@@ -1,4 +1,5 @@
 const express = require('express')
+const jsonParser = express.json()
 const storiesRouter = express.Router()
 const Service = require('./service')
 
@@ -18,6 +19,10 @@ storiesRouter
     Service.getStoriesList(req.app.get('db'))
       .then(stories => res.status(200).json(stories))
       .catch(next)
+  })
+  .post(jsonParser, (req, res, next) => {
+    // serialize data
+    // check required fields
   })
 
 module.exports = storiesRouter

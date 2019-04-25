@@ -48,4 +48,11 @@ describe('Stories endpoints', () => {
         .expect(404, {message: `Story doesn't exist`})
     })
   })
+
+  describe('POST /api/stories', () => {
+    const newStory = stories()[0]
+
+    return supertest(app)
+      .post()
+  })
 })
