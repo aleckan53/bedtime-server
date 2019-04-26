@@ -5,8 +5,11 @@ module.exports = {
     // returns stories list with covers
     return knex('stories as s')
       .join('images as i', 's.cover', '=', 'i.id')
-      .select('*')
-      //'s.id', 's.author', 's.name', 's.date_published', 's.description', 's.rating'
+      .select(
+        's.id', 's.date_published', 's.author', 
+        's.name', 's.description', 's.rating', 
+        's.cover', 'i.link', 'i.alt'
+        )
   },
   getStoryById(knex, id) {
     return knex('stories as s')

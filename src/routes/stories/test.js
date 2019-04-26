@@ -30,6 +30,8 @@ describe('Stories endpoints', () => {
         .get('/api/stories')
         .expect(200)
         .expect(res => {
+          const fields = ['id', 'author', 'name', 'description', 'link']
+
           fields.forEach(prop => {
               expect(res.body[0]).to.have.property(prop)
             })
@@ -56,6 +58,8 @@ describe('Stories endpoints', () => {
         .send(newStory)
         .expect(201)
         .expect(res => {
+          const fields = ['id', 'author', 'name', 'description', 'content']
+
           fields.forEach(prop => {
             expect(res.body).to.have.property(prop)
           })

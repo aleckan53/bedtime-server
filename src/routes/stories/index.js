@@ -25,6 +25,7 @@ storiesRouter
     
     Service.uploadStory(req.app.get('db'), story)
       .then(story => res.status(201).json(...story))
+      .catch(next)
 
   })
 
