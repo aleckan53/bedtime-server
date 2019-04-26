@@ -1,3 +1,5 @@
+const xss = require('xss')
+
 module.exports = {
   getStoriesList(knex) {
     // returns stories list with covers
@@ -12,5 +14,18 @@ module.exports = {
       .join('images as i', 's.cover', '=', 'i.id')
       .select('*')
       .first()
+  },
+  uploadStory(knex, story) {
+    return knex('stories')
+      .insert(story)
+      .returning('*')
+  },
+  serializeData(data) {
+    const serialized = Object.keys(data).reduce((acc, val) => {
+      acc[val] = xss(data[val])
+      return acc
+    }, {})
+
+    return serialized
   }
 }

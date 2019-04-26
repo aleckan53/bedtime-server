@@ -21,8 +21,11 @@ storiesRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    // serialize data
-    // check required fields
+    const story = Service.serializeData(req.body)
+    
+    Service.uploadStory(req.app.get('db'), story)
+      .then(story => res.status(201).json(...story))
+
   })
 
 module.exports = storiesRouter

@@ -5,7 +5,7 @@ const { stories, users, images } = require('tests/fixtures')
 
 describe('Stories endpoints', () => {
   let db
-
+  const fields = ['id', 'author', 'name', 'description', 'content']
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
@@ -25,14 +25,12 @@ describe('Stories endpoints', () => {
   after('disconnect from db', ()=> db.destroy())
   
   describe('GET /api/stories', () => {
-
     it('responds with 200 and a list of stories', () => {
       return supertest(app)
         .get('/api/stories')
         .expect(200)
         .expect(res => {
-          ['id', 'author', 'name', 'date_published', 'cover', 'description', 'content']
-            .forEach(prop => {
+          fields.forEach(prop => {
               expect(res.body[0]).to.have.property(prop)
             })
           expect(res.body).to.be.an('array')
@@ -50,9 +48,18 @@ describe('Stories endpoints', () => {
   })
 
   describe('POST /api/stories', () => {
-    const newStory = stories()[0]
+    it('responds with 201 and creates a story', () => {
+      const newStory = stories()[0]
 
-    return supertest(app)
-      .post()
+      return supertest(app)
+        .post('/api/stories')
+        .send(newStory)
+        .expect(201)
+        .expect(res => {
+          fields.forEach(prop => {
+            expect(res.body).to.have.property(prop)
+          })
+        })
+    })
   })
 })

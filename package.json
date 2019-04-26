@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_PATH=src/ mocha src/ --require tests/setup.js --recursive",
+    "test": "NODE_PATH=src/ mocha src/ --require tests/setup.js --recursive --watch --file tests/config.js",
     "start": "node src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "predeploy": "npm audit",
