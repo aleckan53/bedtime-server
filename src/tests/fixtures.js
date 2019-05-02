@@ -28,21 +28,21 @@ module.exports = {
     return [
       {
         user_name: 'johndoe',
-        password: 'test1',
+        password: '$2a$04$5DS6X/TYcyMHqyoB3yAeyOjJx6ELQyT6G9DEFPeuOe4tp3YgYdDdm',
         email: 'test1@test.com',
         first_name: 'John',
         last_name: 'Doe'
       },
       {
         user_name: 'janesmith',
-        password: 'test2',
+        password: '$2a$04$m63r3lAvpMB62cxH/YTiPOcVU8L5sUlPmmR.3qIX7Ro/YWmKKYjkC',
         email: 'test2@test.com',
         first_name: 'Jane',
         last_name: 'Smith'
       },
       {
         user_name: 'samsmith',
-        password: 'test3',
+        password: '$2a$04$6u/FzBvuaDilXDwgNUGvgegP.dHdsg.TyKTqP1yP1MUNPFkkCnz86',
         email: 'test3@test.com',
         first_name: 'Sam',
         last_name: 'Smith'

@@ -1,6 +1,5 @@
 const express = require(`express`)
 const usersRouter = express.Router()
-const jsonParser = express.json()
 const Service = require('./service')
 
 usersRouter
@@ -8,7 +7,7 @@ usersRouter
   .get((req, res, next) => {
     // responds with users data
   })
-  .patch(jsonParser, (req, res, next) => {
+  .patch(express.json(), (req, res, next) => {
     // update user data
   })
   .delete((req, res, next) => {
@@ -17,7 +16,7 @@ usersRouter
 
 usersRouter
   .route('/')
-  .post(jsonParser, async (req, res, next) => {
+  .post(express.json(), async (req, res, next) => {
 
     Service.checkUsername(req.app.get('db'), req.body.user_name)
       .then(async userName => {
@@ -26,7 +25,8 @@ usersRouter
         } else {
           const newUser = {
             ...req.body,
-            password: await Service.hashPassword(req.body.password)
+            password: await Service.hashPassword(req.body.password),
+            user_name: req.body.user_name.toLowerCase()
           }
           Service.insertUser(req.app.get('db'), newUser)
             .then(user => res.status(201).json(...user))

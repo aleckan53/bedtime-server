@@ -7,7 +7,7 @@ module.exports = {
       .returning(['id', 'user_name'])
   },
   hashPassword(password) {
-    return bcrypt.hash(password, 1)
+    return bcrypt.hash(password, 4)
   },
   checkUsername(knex, user_name) {
     return knex('users')

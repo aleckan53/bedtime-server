@@ -27,7 +27,7 @@ describe('Stories endpoints', () => {
   describe('POST /api/users/create', () => {
     it('repsonds with 201 and creates a user with hashed password', () => {
       const newUser = {
-        user_name: 'test123',
+        user_name: 'Test123',
         password: 'test12345',
       }
       return supertest(app)
@@ -35,7 +35,7 @@ describe('Stories endpoints', () => {
         .send(newUser)
         .expect(201)
         .expect(res => {
-          expect(res.body.user_name).to.be.equal(newUser.user_name)
+          expect(res.body.user_name).to.be.equal(newUser.user_name.toLowerCase())
           expect(res.body).to.have.property('id')
           expect(res.body).to.not.have.property('password')
         })

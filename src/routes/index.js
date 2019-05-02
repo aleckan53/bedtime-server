@@ -1,7 +1,8 @@
-const storiesRouter = require('./stories/index')
-const uploadsRouter = require('./uploads/index')
-const usersRouter = require('./users/index')
+const storiesRouter = require('./stories')
+const uploadsRouter = require('./uploads')
+const usersRouter = require('./users')
+const authRouter = require('./auth')
 
 module.exports = {
-  storiesRouter, uploadsRouter, usersRouter
+  storiesRouter, uploadsRouter, usersRouter, authRouter
 }

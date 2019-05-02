@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
-const { storiesRouter, uploadsRouter, usersRouter } = require('./routes')
+const { storiesRouter, uploadsRouter, usersRouter, authRouter } = require('./routes')
 const app = express()
 
 const morganOption = (NODE_ENV === 'production')
@@ -18,6 +18,7 @@ app.use(helmet())
 app.use('/api/stories', storiesRouter)
 app.use('/api/uploads', uploadsRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/login', authRouter)
 
 app.use(function errorHandler (error, req, res, next){
   let response 
