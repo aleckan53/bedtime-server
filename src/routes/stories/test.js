@@ -41,10 +41,11 @@ describe('Stories endpoints', () => {
     })
   })
 
-  describe('GET /api/stories/:id', () => {
+  describe.skip('GET /api/stories/:id', () => {
     it('responds with 404 if invalid id', () => {
       return supertest(app)
         .get('/api/stories/999')
+        .set({'Authorization': `Bearer `})
         .expect(404, {message: `Story doesn't exist`})
     })
   })
@@ -63,6 +64,16 @@ describe('Stories endpoints', () => {
           fields.forEach(prop => {
             expect(res.body).to.have.property(prop)
           })
+        })
+    })
+  })
+
+  describe('GET /api/stories/:id', () => {
+    it('responds with 401 if unauthorized', () => {
+      return supertest(app)
+        .get('/api/stories/1')
+        .expect(401, {
+          message: 'Missing bearer token'
         })
     })
   })

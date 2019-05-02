@@ -30,5 +30,10 @@ module.exports = {
     }, {})
 
     return serialized
+  },
+  getUserByUsername(knex, user_name) {
+    return knex('users')
+      .where({user_name})
+      .first()
   }
 }

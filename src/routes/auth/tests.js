@@ -25,7 +25,7 @@ describe('Auth endpoints', () => {
   afterEach(() => cleanTables(db))
   after('disconnect from db', ()=> db.destroy())
 
-  describe.only('POST /api/login', () => {
+  describe('POST /api/login', () => {
     it('responds with 400 if missing field', () => {
       return supertest(app)
         .post('/api/login')

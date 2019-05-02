@@ -2,9 +2,11 @@ const express = require('express')
 const jsonParser = express.json()
 const storiesRouter = express.Router()
 const Service = require('./service')
+const { requireAuth } = require('./middlewares')
 
 storiesRouter
   .route('/:id')
+  .all(requireAuth)
   .get((req, res, next) => {
     Service.getStoryById(req.app.get('db'), req.params.id)
       .then(story => (!story)
