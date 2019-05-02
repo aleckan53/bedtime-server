@@ -12,7 +12,6 @@ uploadsRouter
           alt: req.file.originalname,
         })
           .then(image => res.status(201).json(...image)))
-          .catch(next)
   })
 
 module.exports = uploadsRouter

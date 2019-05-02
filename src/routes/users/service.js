@@ -8,5 +8,11 @@ module.exports = {
   },
   hashPassword(password) {
     return bcrypt.hash(password, 1)
+  },
+  checkUsername(knex, user_name) {
+    return knex('users')
+      .where({user_name})
+      .first()
+      .then(user => !!user)
   }
 }

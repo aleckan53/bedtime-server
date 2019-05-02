@@ -27,7 +27,7 @@ describe('Stories endpoints', () => {
   describe('POST /api/users/create', () => {
     it('repsonds with 201 and creates a user with hashed password', () => {
       const newUser = {
-        user_name: 'test',
+        user_name: 'test123',
         password: 'test12345',
       }
       return supertest(app)
@@ -38,6 +38,17 @@ describe('Stories endpoints', () => {
           expect(res.body.user_name).to.be.equal(newUser.user_name)
           expect(res.body).to.have.property('id')
           expect(res.body).to.not.have.property('password')
+        })
+    })
+
+    it('responds with 400 if user_name is taken', () => {
+      const newUser = users()[0]
+
+      return supertest(app)
+        .post('/api/users')
+        .send(newUser)
+        .expect(400, {
+          message: `Username '${newUser.user_name}' is already taken`
         })
     })
   })
