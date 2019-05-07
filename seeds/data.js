@@ -1,7 +1,7 @@
 module.exports = [
   {
     author: 'Carol Moore',
-    name: 'The Little Gingerbread Man',
+    name: 'Carol Moore',
     description: 'A surprising new version of the classic Gingerbread Man fairy tale.',
     cover: '8',
     status: true,
@@ -88,8 +88,8 @@ module.exports = [
     name: `Pirates Treasure`,
     description: `A pirate in Jimmy's dream tells him where to find buried treasure.`,
     cover: '9',
-    rating: 5,
     status: true,
+    rating: 5,
     content: `
       <img src="http://www.magickeys.com/books/pirate/1_dream.jpg" alt="A boy is sleeping" />
       <p>Ten steps from the porch and twenty steps from the rose bushes," growled Bluebeard in Jimmy's dream one night. "There be treasure there! Aawrgh</p>
@@ -110,8 +110,8 @@ module.exports = [
     name: `The Halloween House`,
     description: `Don't go there on Halloween. See what goes bump in the night.`,
     cover: `10`,
-    rating: 5,
     status: true,
+    rating: 5,
     content: `
     <p>The Halloween House is big and old. I'm told that on Halloween night things happen there.</p>
     <img src='http://www.magickeys.com/books/halloween/house.jpg' alt='Halloween house'/>

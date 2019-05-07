@@ -14,7 +14,11 @@ VALUES
   ('https://bedtime-images.s3.us-west-1.amazonaws.com/1556578518243_img_3.jpg', 'story 4 cover'),
   ('https://bedtime-images.s3.us-west-1.amazonaws.com/1556344646856_img_1.jpg', 'story 1 image'),
   ('https://bedtime-images.s3.us-west-1.amazonaws.com/1556344646856_img_1.jpg', 'story 2 image'),
-  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1556344646856_img_1.jpg', 'story 3 image');
+  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1556344646856_img_1.jpg', 'story 3 image'),
+  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1557104773999_cover1.jpg', 'cover1'),
+  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1557104786541_cover2.png', 'cover2'),
+  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1557104798359_cover3.jpg', 'cover3'),
+  ('https://bedtime-images.s3.us-west-1.amazonaws.com/1557107693025_cover4.jpg', 'cover4');
 
 INSERT INTO users (user_name, password, email, first_name, last_name)
 VALUES
