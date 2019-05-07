@@ -2,14 +2,13 @@
 
 Express app for [bedtime-client](https://github.com/olegakan/bedtime-client)
 <div style='
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  place-items: center;
+  display: flex;
+  justify-content: space-between;
 '>
-  <img src='https://d1.awsstatic.com/rdsImages/postgresql_logo.6de4615badd99412268bc6aa8fc958a0f403dd41.png' alt='postgresql' width='80'/>
-  <img src='https://seeklogo.com/images/K/knexjs-logo-30104DC5C6-seeklogo.com.png' alt='knexjs' width='80'/>
-  <img src='https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png' alt='nodejs' width='80'/>
-  <img src='https://camo.githubusercontent.com/fc61dcbdb7a6e49d3adecc12194b24ab20dfa25b/68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67' alt='expressjs' />
+  <img src='https://d1.awsstatic.com/rdsImages/postgresql_logo.6de4615badd99412268bc6aa8fc958a0f403dd41.png' alt='postgresql' height='80'/>
+  <img src='https://seeklogo.com/images/K/knexjs-logo-30104DC5C6-seeklogo.com.png' alt='knexjs' height='80'/>
+  <img src='https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png' alt='nodejs' height='80'/>
+  <img src='https://camo.githubusercontent.com/fc61dcbdb7a6e49d3adecc12194b24ab20dfa25b/68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67' alt='expressjs'  height='80'/>
 </div>
 
 ## Set up
