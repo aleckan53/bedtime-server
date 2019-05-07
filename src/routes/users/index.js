@@ -3,18 +3,6 @@ const usersRouter = express.Router()
 const Service = require('./service')
 
 usersRouter
-  .route('/:user_id')
-  .get((req, res, next) => {
-    // responds with users data
-  })
-  .patch(express.json(), (req, res, next) => {
-    // update user data
-  })
-  .delete((req, res, next) => {
-    // delete a user
-  })
-
-usersRouter
   .route('/')
   .post(express.json(), async (req, res, next) => {
 

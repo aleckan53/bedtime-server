@@ -4,6 +4,7 @@ module.exports = {
   getStoriesList(knex) {
     // returns stories list with covers
     return knex('stories as s')
+      .where('s.status', '=', 'true')
       .join('images as i', 's.cover', '=', 'i.id')
       .select(
         's.id', 's.date_published', 's.author', 

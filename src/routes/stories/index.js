@@ -22,11 +22,20 @@ storiesRouter
       .then(stories => res.status(200).json(stories))
       .catch(next)
   })
+  .all(requireAuth)
   .post(jsonParser, (req, res, next) => {
-    const story = Service.serializeData(req.body)
-    
+    const content = Service.serializeData(req.body)
+    const story = {
+      content,
+      name: 'New Story',
+      description: 'This is a new story',
+      author: res.user.user_name,
+      cover: 1,
+    }
     Service.uploadStory(req.app.get('db'), story)
-      .then(story => res.status(201).json(...story))
+      .then(() => res.status(201).json({
+        message: `Success! Your story has been uploaded. It will be reviewed within 2-5 days. Check back then.`
+      }))
       .catch(next)
 
   })

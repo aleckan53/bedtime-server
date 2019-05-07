@@ -2,6 +2,7 @@ const app = require('app')
 const knex = require('knex')
 const { seedTables, cleanTables } = require('tests/helpers')
 const { stories, users, images } = require('tests/fixtures')
+const { createJwt } = require('routes/auth/service')
 
 describe('Stories endpoints', () => {
   let db
@@ -50,20 +51,19 @@ describe('Stories endpoints', () => {
     })
   })
 
-  describe('POST /api/stories', () => {
+  describe.only('POST /api/stories', () => {
     it('responds with 201 and creates a story', () => {
       const newStory = stories()[0]
+      const user = users()[0]
 
       return supertest(app)
         .post('/api/stories')
+        .set({'Authorization': `Bearer ${createJwt(user.user_name, {
+          user_id: user.id
+        })}`})
         .send(newStory)
-        .expect(201)
-        .expect(res => {
-          const fields = ['id', 'author', 'name', 'description', 'content']
-
-          fields.forEach(prop => {
-            expect(res.body).to.have.property(prop)
-          })
+        .expect(201, {
+          message: `Success! Your story has been uploaded. It will be reviewed within 2-5 days. Check back then.`
         })
     })
   })

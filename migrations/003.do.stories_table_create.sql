@@ -8,6 +8,7 @@ CREATE TABLE stories (
   description TEXT NOT NULL,
   content TEXT NOT NULL,
   date_revised TIMESTAMP,
-  rating INTEGER,
-  cover INTEGER REFERENCES images(id)
+  rating DECIMAL DEFAULT 0.00,
+  cover INTEGER REFERENCES images(id),
+  status BOOLEAN DEFAULT false NOT NULL
 );
