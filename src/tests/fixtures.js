@@ -7,6 +7,7 @@ module.exports = {
         description: 'Lorem Ipsum',
         cover: 1,
         content: 'Lorem ipsum dolor',
+        status: 'true',
       },
       {
         author: 'Jane Doe',
@@ -14,6 +15,7 @@ module.exports = {
         description: 'Dolor Ipsum',
         cover: 2,
         content: 'Dolor ipsum dolor',
+        status: 'true',
       },
       {
         author: 'Sam Doe',
@@ -21,6 +23,7 @@ module.exports = {
         description: 'Amet Ipsum',
         cover: 3,
         content: 'Amet ipsum dolor',
+        status: 'true',
       }
     ]
   },

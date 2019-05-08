@@ -42,16 +42,32 @@ describe('Stories endpoints', () => {
     })
   })
 
-  describe.skip('GET /api/stories/:id', () => {
+  describe('GET /api/stories/:id', () => {
+    const user = users()[0]
+
     it('responds with 404 if invalid id', () => {
       return supertest(app)
         .get('/api/stories/999')
-        .set({'Authorization': `Bearer `})
+        .set({'Authorization': `Bearer ${createJwt(user.user_name, {
+          user_id: user.id
+        })}`})
         .expect(404, {message: `Story doesn't exist`})
+    })
+
+    it('responds with 200 and a story data', () => {
+      return supertest(app)
+      .get('/api/stories/1')
+      .set({'Authorization': `Bearer ${createJwt(user.user_name, {
+        user_id: user.id
+      })}`})
+      .expect(200)
+      .then(res => {
+        expect(res.body).to.have.property('content')
+      })
     })
   })
 
-  describe.only('POST /api/stories', () => {
+  describe('POST /api/stories', () => {
     it('responds with 201 and creates a story', () => {
       const newStory = stories()[0]
       const user = users()[0]
